@@ -14,7 +14,9 @@ export class Jumbotron extends React.Component {
 						<p className={this.props.pClassFirstCol}>
 							{this.props.pHeaderFirstCol}
 						</p>
-						<p>{this.props.pTextFirstCol}</p>
+						<p className={this.props.pTexClassColOne}>
+							{this.props.pTextFirstCol}
+						</p>
 					</div>
 					<div className={this.props.secondColumnClass}>
 						<img
@@ -48,5 +50,6 @@ Jumbotron.propTypes = {
 	pHeaderSecondCol: PropTypes.string,
 	imgClass: PropTypes.string,
 	pTextSecondCol: PropTypes.string,
-	pTextFirstCol: PropTypes.string
+	pTextFirstCol: PropTypes.string,
+	pTexClassColOne: PropTypes.string
 };
