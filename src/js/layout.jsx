@@ -9,6 +9,7 @@ import Store from "./store/appContext.jsx";
 
 import { Navbar } from "./component/navbar.jsx";
 import { Footer } from "./component/footer.jsx";
+import { Lessons } from "./views/lessons.jsx";
 
 //create your first component
 export class Layout extends React.Component {
@@ -20,6 +21,7 @@ export class Layout extends React.Component {
 						<Navbar />
 						<Switch>
 							<Route exact path="/" component={Home} />
+							<Route exact path="/lessons" component={Lessons} />
 							<Route path="/demo" component={Demo} />
 							<Route path="/single/:theid" component={Single} />
 							<Route render={() => <h1>Not found!</h1>} />

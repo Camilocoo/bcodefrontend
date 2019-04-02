@@ -1,3 +1,12 @@
-/* 
-    General Styles
-*/
+.greenButton{
+    background-color: #DFEDD5;    
+
+}
+
+.blueButton{
+    background-color: #D4E3FC;
+}
+
+.blueLinks{
+    color:#007bff;
+}

@@ -93,9 +93,9 @@ export class Home extends React.Component {
 						</div>
 					</div>
 					<div className="row w-75">
-						<div className="col-3">
-							<i className=" pl-3 ml-5 fas fa-calendar-alt position-absolute" />
+						<div className="col-1.5">
 							<p className="pl-3 h6 text-right font-weight-bold">
+								<i className="3x pl-3 ml-5 fas fa-calendar-alt" />{" "}
 								May 1st
 								<br />
 								<small className="text-secondary">
@@ -104,6 +104,13 @@ export class Home extends React.Component {
 									11:00 am
 								</small>
 							</p>
+						</div>
+						<div className="col">
+							<p className="h5">Coding Weekends</p>
+							<p className="h6 text-secondary">
+								Come and code with other developers
+							</p>
+							<br />
 						</div>
 					</div>
 				</div>
