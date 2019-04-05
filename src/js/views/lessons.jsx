@@ -1,5 +1,8 @@
 import React from "react";
 import { SmallJumbotron } from "../component/smalljumbo.jsx";
+import { Filter } from "@breathecode/ui-components";
+import { Theme } from "@breathecode/ui-components";
+import { Context } from "../store/appContext.jsx";
 
 export class Lessons extends React.Component {
 	render() {
@@ -17,24 +20,78 @@ export class Lessons extends React.Component {
 							filters bellow"
 				/>
 				<div className="row">
-					<div className="col border-top border-bottom">
-						<p>tags</p>
+					<div className="col border-top border-bottom d-flex justify-content-start ">
+						<div className="px-1 py-2">
+							<Filter
+								label="Tags"
+								placeholder="Select one or more tags"
+								onChange={d => console.log(d)}
+								options={[
+									{ label: "CSS", value: "CSS" },
+									{ label: "react.js", value: "react.js" },
+									{
+										label: "Object Oriented Programming",
+										value: "Object Oriented Programming"
+									},
+									{ label: "HTML", value: "HTML" },
+									{ label: "Events", value: "Events" },
+									{ label: "Forms", value: "Forms" },
+									{ label: "Webpack", value: "Webpack" },
+									{ label: "Flux", value: "Flux" }
+								]}
+							/>
+						</div>
+						<div className="px-1 pl-1 py-2">
+							<Filter
+								label="Gender"
+								onChange={d => console.log(d)}
+								placeholder="Select an author"
+								multiselect={false}
+								options={[
+									{ label: "@alesanchezr", value: "male" },
+									{ label: "@camilocruz", value: "female" }
+								]}
+							/>
+						</div>
+
+						<div className="px-1 py-2">
+							<Filter
+								label="Tags"
+								placeholder="Search My Name"
+								onChange={d => console.log(d)}
+								options={[
+									{ label: "html", value: "html" },
+									{ label: "react.js", value: "react.js" },
+									{ label: "javascript", value: "javascript" }
+								]}
+							/>
+						</div>
 					</div>
 				</div>
 				<div className="row">
-					<div className="col-12 py-5 px-5">
-						<h1 className="h3 font-weight-bold  text-left">
-							Learn CSS: What is CSS meant for?
-						</h1>
-						<p className="lead  text-left">
-							As you may have noticed, HTML allows you to create
-							only basic webistes. Nobody wants to see a white
-							website with some horrible text on it. So its time
-							to know what is all about! Learn CSS to make your
-							website beautiful. Its time to shine !
-						</p>
-						<hr className="my-4" />
-					</div>
+					<Context.Consumer>
+						{({ store, actions }) => {
+							return store.lessons.map((lesson, index) => {
+								return (
+									<div key={index}>
+										<div className="col-12 px-5 py-5">
+											<a
+												className="h2 text-dark btn-default"
+												href={actions.lessonUrl(
+													lesson.slug
+												)}>
+												{lesson.title}
+											</a>
+											<p className="lead">
+												{lesson.subtitle}
+											</p>
+										</div>
+										<hr className="my-4" />
+									</div>
+								);
+							});
+						}}
+					</Context.Consumer>
 				</div>
 			</div>
 		);

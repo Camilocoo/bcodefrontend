@@ -15,6 +15,7 @@ export class OpenSource extends React.Component {
 					spanClass="h3 text-secondary"
 					spanContent=".md"
 				/>
+				<div className="row" />
 			</div>
 		);
 	}

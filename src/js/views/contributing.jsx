@@ -1,5 +1,7 @@
 import React from "react";
 import { SmallJumbotron } from "../component/smalljumbo.jsx";
+import { Filter } from "@breathecode/ui-components";
+
 export class Contributing extends React.Component {
 	render() {
 		return (
@@ -15,8 +17,66 @@ export class Contributing extends React.Component {
 					spanContent=".md"
 				/>
 				<div className="row">
-					<div className="col border-top border-bottom">
-						<p>tags</p>
+					<div className="col border-top border-bottom d-flex justify-content-start">
+						<div className="px-1 pl-1 py-2">
+							<Filter
+								onChange={d => console.log(d)}
+								placeholder="Good first Issue"
+								options={[
+									{ label: "@alesanchezr", value: "male" },
+									{ label: "@camilocruz", value: "female" }
+								]}
+							/>
+						</div>
+
+						<div className="px-1 py-2">
+							<Filter
+								placeholder="help wanted"
+								onChange={d => console.log(d)}
+								options={[
+									{ label: "html", value: "html" },
+									{ label: "react.js", value: "react.js" },
+									{ label: "javascript", value: "javascript" }
+								]}
+							/>
+						</div>
+						<div className="px-1 pl-1 py-2">
+							<Filter
+								label="Gender"
+								onChange={d => console.log(d)}
+								placeholder="bug"
+								multiselect={false}
+								options={[
+									{ label: "@alesanchezr", value: "male" },
+									{ label: "@camilocruz", value: "female" }
+								]}
+							/>
+						</div>
+
+						<div className="px-1 py-2">
+							<Filter
+								label="Tags"
+								placeholder="4geeks_student"
+								onChange={d => console.log(d)}
+								options={[
+									{ label: "html", value: "html" },
+									{ label: "react.js", value: "react.js" },
+									{ label: "javascript", value: "javascript" }
+								]}
+							/>
+						</div>
+						<div className="px-1 pl-1 py-2">
+							<Filter
+								label="bc-coder"
+								onChange={d => console.log(d)}
+								placeholder="bc coder"
+								multiselect={false}
+								options={[
+									{ label: "@alesanchezr", value: "male" },
+									{ label: "@camilocruz", value: "female" }
+								]}
+							/>
+						</div>
 					</div>
 				</div>
 				<div className="row">

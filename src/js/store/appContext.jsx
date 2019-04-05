@@ -17,9 +17,17 @@ const Store = PassedComponent => {
 		}
 
 		componentDidMount() {
-			// this function is the equivalent to "window.onLoad"
-			// it only run once on the entire application lifetime
-			// you should do your ajax requests here
+			fetch(
+				"http://assets.breatheco.de/apis/lesson/all/v2?status=published"
+			)
+				.then(res => res.json())
+				.then(lessons => {
+					let { store } = this.state;
+					store.lessons = lessons;
+					this.setState({
+						store
+					});
+				});
 		}
 
 		render() {

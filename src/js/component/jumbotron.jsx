@@ -18,15 +18,23 @@ export class Jumbotron extends React.Component {
 							{this.props.pTextFirstCol}
 						</p>
 						<p className={this.props.firstColumnLinkClass}>
-							<a> {this.props.firstLinkColOneText}</a>
+							<a className={this.props.linkClassColOne}>
+								{this.props.firstLinkColOneText}
+							</a>
 						</p>
 						<hr className={this.props.hrLineClass} />
 						<p className={this.props.firstColumnLinkClass}>
-							<a> {this.props.secondLinkColOneText}</a>
+							<a className={this.props.linkClassColOne}>
+								{" "}
+								{this.props.secondLinkColOneText}
+							</a>
 						</p>
 						<hr className={this.props.hrLineClass} />
 						<p className={this.props.firstColumnLinkClass}>
-							<a> {this.props.thirdLinkColOneText}</a>
+							<a className={this.props.linkClassColOne}>
+								{" "}
+								{this.props.thirdLinkColOneText}
+							</a>
 						</p>
 						<p className={this.props.smallDescriptionFirstColClass}>
 							<small>{this.props.smallDescriptionFirstCol}</small>
@@ -39,10 +47,12 @@ export class Jumbotron extends React.Component {
 						</div>
 					</div>
 					<div className={this.props.secondColumnClass}>
-						<img
-							className={this.props.imgClass}
-							src={this.props.imgSrc}
-						/>
+						<div className="d-none d-md-block">
+							<img
+								className={this.props.imgClass}
+								src={this.props.imgSrc}
+							/>
+						</div>
 					</div>
 					<div className={this.props.thirdColumnClass}>
 						<p className={this.props.pClassSecondCol}>
@@ -62,7 +72,10 @@ export class Jumbotron extends React.Component {
 						<p className={this.props.linksClassSecondCol}>
 							<a>{this.props.thirdLinkColTwoText}</a>
 						</p>
-						<p className={this.props.smallDescriptionFirstColClass}>
+						<p
+							className={
+								this.props.smallDescriptionSecondColClass
+							}>
 							<small>
 								{this.props.smallDescriptionsecondTextCol}
 							</small>
@@ -123,5 +136,7 @@ Jumbotron.propTypes = {
 	buttonColTwoText: PropTypes.string,
 	buttonSmallText: PropTypes.string,
 	buttonAlignCenterClassTwo: PropTypes.string,
-	jumboRowClass: PropTypes.string
+	jumboRowClass: PropTypes.string,
+	linkClassColOne: PropTypes.string,
+	smallDescriptionSecondColClass: PropTypes.string
 };

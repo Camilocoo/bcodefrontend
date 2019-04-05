@@ -2,42 +2,80 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "./button.jsx";
 import { Jumbotron } from "./jumbotron.jsx";
+
 export class Navbar extends React.Component {
+	constructor() {
+		super();
+		this.state = {
+			change: false
+		};
+	}
 	render() {
 		return (
 			<div>
-				<nav className="navbar navbar-light bg-light pr-0">
-					<div className="row d-flex w-100 ">
-						<div className="col-8 justify-content-start d-flex">
-							<div className="d-flex flex-row w-100">
-								<div className="pl-0 col-0.5">
-									<img src="https://ucarecdn.com/dbe55247-376b-4b81-988e-7dd95f4233b5/-/resize/45x/" />
-								</div>
-								<div className="col-3 py-2">
-									<a className="pt-5 px-0 mt-1">
-										Learn To Code
+				<nav className="navbar navbar-expand-lg navbar-light bg-light">
+					<img
+						className="navbar-brand mb-0"
+						src="https://ucarecdn.com/dbe55247-376b-4b81-988e-7dd95f4233b5/-/resize/45x/"
+					/>
+					<button
+						className="navbar-toggler"
+						type="button"
+						data-toggle="collapse"
+						data-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent"
+						aria-expanded="false"
+						aria-label="Toggle navigation"
+						onClick={() => {
+							this.setState({
+								change: !this.state.change
+							});
+						}}>
+						<span className="navbar-toggler-icon" />
+					</button>
+
+					<div
+						className={`navbar-collapse collapse ${this.state
+							.change && "show"}`}
+						id="navbarSupportedContent">
+						<ul className="navbar-nav mr-auto">
+							<li className="nav-item">
+								<a className="nav-link" href="#">
+									Learn To Code
+								</a>
+							</li>
+							<li className="nav-item">
+								<Link to="/aboutus" className="nav-link">
+									<a className="nav-link" href="#">
+										About Us
 									</a>
-								</div>
-								<div className="col-3 py-2">
-									<a className="pt-5 px-0 mt-1">About Us</a>
-								</div>
-								<div className="col px-0 py-2">
-									<a className="pt-5 mt-1">
+								</Link>
+							</li>
+							<li className="nav-item">
+								<Link to="/opensource" className="nav-link">
+									<a
+										className="nav-link"
+										href="#"
+										role="button"
+										aria-haspopup="true"
+										aria-expanded="false">
 										Open Source Projects
 									</a>
-								</div>
-							</div>
-						</div>
-						<div className="col-4 justify-content-end d-flex">
+								</Link>
+							</li>
+						</ul>
+						<form className="form-inline my-2 my-lg-0">
+							<Link to="/contributing" className="nav-link">
+								<Button
+									classNameButton="ml-5 btn btn-outline-success buttonHeight mr-3"
+									buttonText="Start Contributing"
+								/>
+							</Link>
 							<Button
-								classNameButton="ml-5 btn btn-outline-success mr-3"
-								buttonText="Start Contributing"
-							/>
-							<Button
-								classNameButton="btn btn-outline-primary px-5"
+								classNameButton="btn btn-outline-primary buttonHeight  px-5"
 								buttonText="login"
 							/>
-						</div>
+						</form>
 					</div>
 				</nav>
 			</div>
