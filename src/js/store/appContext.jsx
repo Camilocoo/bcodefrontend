@@ -28,6 +28,30 @@ const Store = PassedComponent => {
 						store
 					});
 				});
+
+			fetch(
+				"http://assets.breatheco.de/apis/event/all?status=published&location=downtown-miami&status=upcoming"
+			)
+				.then(res => res.json())
+				.then(events => {
+					let { store } = this.state;
+					store.events = events;
+					this.setState({
+						store
+					});
+				});
+
+			fetch(
+				"https://raw.githubusercontent.com/breatheco-de/main-documentation/master/README.md"
+			)
+				.then(res => res.text())
+				.then(markdown => {
+					let { store } = this.state;
+					store.markdown = markdown;
+					this.setState({
+						store
+					});
+				});
 		}
 
 		render() {

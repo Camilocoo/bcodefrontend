@@ -2,7 +2,8 @@ const getState = ({ getStore, setStore }) => {
 	return {
 		store: {
 			lessons: [],
-			isLoaded: false
+			events: [],
+			markdown: {}
 		},
 		actions: {
 			lessonUrl: slug => {

@@ -15,3 +15,23 @@
 .buttonHeight{
     height: 42px
 }
+
+a{
+  background-image: none;
+  cursor: pointer;
+  
+}
+
+.textDecorationGreen{
+    color: #28A745;
+    text-decoration: underline;   
+}
+
+.textDecoration{
+    text-decoration: underline;   
+}
+  
+  
+.gradient{
+  background-image: linear-gradient(#E9ECEF, #FFFFFF);
+}

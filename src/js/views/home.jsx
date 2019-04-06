@@ -2,28 +2,9 @@ import React from "react";
 import { Jumbotron } from "../component/jumbotron.jsx";
 import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
+import { Context } from "../store/appContext.jsx";
 
 export class Home extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			events: [],
-			isLoaded: false
-		};
-	}
-
-	componentDidMount() {
-		fetch(
-			"http://assets.breatheco.de/apis/event/all?status=published&location=downtown-miami&status=upcoming"
-		)
-			.then(res => res.json())
-			.then(events => {
-				this.setState({
-					isLoaded: true,
-					events: events
-				});
-			});
-	}
 	render() {
 		return (
 			<div>
@@ -64,8 +45,9 @@ export class Home extends React.Component {
 					buttonSmallText="$40/mo contribution"
 					buttonAlignCenterClassTwo=" "
 					jumboRowClass="row"
-					linkClassColOne=" "
+					linkClassColOne="textDecorationGreen"
 					smallDescriptionSecondColClass=""
+					secondColThirdLinkHref="https://projects.breatheco.de/"
 				/>
 				<div className="jumbotron jumbotron-fluid blueButton py-4">
 					<div className="container text-center">
@@ -116,31 +98,39 @@ export class Home extends React.Component {
 						</div>
 					</div>
 					<div className="row w-75">
-						{this.state.events.map((event, index) => {
-							return (
-								<div key={index} className="col-12 d-flex">
-									<div className="pr-3">
-										<p className="pl-3 h6 text-right font-weight-bold">
-											<i className="3x pl-3 ml-5 far fa-calendar-alt" />
-											{event.event_date}
-											<br />
-											<small className="text-secondary">
-												{event.address}
+						<Context.Consumer>
+							{({ store, actions }) => {
+								return store.events.map((event, index) => {
+									return (
+										<div
+											key={index}
+											className="col-12 d-flex">
+											<div className="pr-3">
+												<p className="pl-3 h6 text-right font-weight-bold">
+													<i className="3x pl-3 ml-5 far fa-calendar-alt" />
+													{event.event_date}
+													<br />
+													<small className="text-secondary">
+														{event.address}
+														<br />
+														{event.city_slug}
+													</small>
+												</p>
+											</div>
+											<div>
+												<p className="h5">
+													{event.title}
+												</p>
+												<p className="h6 text-secondary">
+													{event.type}
+												</p>
 												<br />
-												{event.city_slug}
-											</small>
-										</p>
-									</div>
-									<div>
-										<p className="h5">{event.title}</p>
-										<p className="h6 text-secondary">
-											{event.type}
-										</p>
-										<br />
-									</div>
-								</div>
-							);
-						})}
+											</div>
+										</div>
+									);
+								});
+							}}
+						</Context.Consumer>
 					</div>
 				</div>
 			</div>

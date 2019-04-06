@@ -1,8 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 import { Button } from "./button.jsx";
 import { Jumbotron } from "./jumbotron.jsx";
-
+import { Link } from "react-router-dom";
 export class Navbar extends React.Component {
 	constructor() {
 		super();
@@ -13,11 +13,13 @@ export class Navbar extends React.Component {
 	render() {
 		return (
 			<div>
-				<nav className="navbar navbar-expand-lg navbar-light bg-light">
-					<img
-						className="navbar-brand mb-0"
-						src="https://ucarecdn.com/dbe55247-376b-4b81-988e-7dd95f4233b5/-/resize/45x/"
-					/>
+				<nav className="navbar navbar-expand-lg navbar-light bg-light gradient">
+					<Link to="/">
+						<img
+							className="navbar-brand mb-0"
+							src="https://ucarecdn.com/dbe55247-376b-4b81-988e-7dd95f4233b5/-/resize/45x/"
+						/>
+					</Link>
 					<button
 						className="navbar-toggler"
 						type="button"
@@ -38,36 +40,42 @@ export class Navbar extends React.Component {
 						className={`navbar-collapse collapse ${this.state
 							.change && "show"}`}
 						id="navbarSupportedContent">
-						<ul className="navbar-nav mr-auto">
-							<li className="nav-item">
-								<a className="nav-link" href="#">
-									Learn To Code
-								</a>
+						<ul className="navbar-nav mr-auto text-center">
+							<li className="nav-item mt-3">
+								<Link to="/lessons" className="nav-link">
+									<a
+										className={`nav-link ${this.state
+											.change && "border-bottom"}`}
+										href="#">
+										Learn To Code
+									</a>
+								</Link>
+								{/*{this.state.change && <hr className="my-4" />}*/}
 							</li>
-							<li className="nav-item">
+							<li className="nav-item mt-3">
 								<Link to="/aboutus" className="nav-link">
-									<a className="nav-link" href="#">
+									<a
+										className={`nav-link ${this.state
+											.change && "border-bottom"}`}
+										href="#">
 										About Us
 									</a>
 								</Link>
 							</li>
-							<li className="nav-item">
+							<li className="nav-item mt-3">
 								<Link to="/opensource" className="nav-link">
 									<a
-										className="nav-link"
-										href="#"
-										role="button"
-										aria-haspopup="true"
-										aria-expanded="false">
+										className={`nav-link ${this.state
+											.change && "border-bottom"}`}>
 										Open Source Projects
 									</a>
 								</Link>
 							</li>
 						</ul>
-						<form className="form-inline my-2 my-lg-0">
+						<form className="form-inline my-2 my-lg-0  d-flex justify-content-center">
 							<Link to="/contributing" className="nav-link">
 								<Button
-									classNameButton="ml-5 btn btn-outline-success buttonHeight mr-3"
+									classNameButton=" btn btn-outline-success buttonHeight mr-2"
 									buttonText="Start Contributing"
 								/>
 							</Link>

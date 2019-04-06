@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "./button.jsx";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export class Jumbotron extends React.Component {
 	render() {
@@ -18,23 +19,29 @@ export class Jumbotron extends React.Component {
 							{this.props.pTextFirstCol}
 						</p>
 						<p className={this.props.firstColumnLinkClass}>
-							<a className={this.props.linkClassColOne}>
-								{this.props.firstLinkColOneText}
-							</a>
+							<Link to="/aboutus">
+								<a className={this.props.linkClassColOne}>
+									{this.props.firstLinkColOneText}
+								</a>
+							</Link>
 						</p>
 						<hr className={this.props.hrLineClass} />
 						<p className={this.props.firstColumnLinkClass}>
-							<a className={this.props.linkClassColOne}>
-								{" "}
-								{this.props.secondLinkColOneText}
-							</a>
+							<Link to="/opensource">
+								<a className={this.props.linkClassColOne}>
+									{" "}
+									{this.props.secondLinkColOneText}
+								</a>
+							</Link>
 						</p>
 						<hr className={this.props.hrLineClass} />
 						<p className={this.props.firstColumnLinkClass}>
-							<a className={this.props.linkClassColOne}>
-								{" "}
-								{this.props.thirdLinkColOneText}
-							</a>
+							<Link to="/contributing">
+								<a className={this.props.linkClassColOne}>
+									{" "}
+									{this.props.thirdLinkColOneText}
+								</a>
+							</Link>
 						</p>
 						<p className={this.props.smallDescriptionFirstColClass}>
 							<small>{this.props.smallDescriptionFirstCol}</small>
@@ -62,7 +69,9 @@ export class Jumbotron extends React.Component {
 							{this.props.pTextSecondCol}
 						</p>
 						<p className={this.props.linksClassSecondCol}>
-							<a> {this.props.firstLinkColTwoText}</a>
+							<Link to="/lessons">
+								<a> {this.props.firstLinkColTwoText}</a>
+							</Link>
 						</p>
 						<hr className={this.props.hrLineClass} />
 						<p className={this.props.linksClassSecondCol}>
@@ -70,7 +79,9 @@ export class Jumbotron extends React.Component {
 						</p>
 						<hr className={this.props.hrLineClass} />
 						<p className={this.props.linksClassSecondCol}>
-							<a>{this.props.thirdLinkColTwoText}</a>
+							<a href={this.props.secondColThirdLinkHref}>
+								{this.props.thirdLinkColTwoText}
+							</a>
 						</p>
 						<p
 							className={
@@ -138,5 +149,7 @@ Jumbotron.propTypes = {
 	buttonAlignCenterClassTwo: PropTypes.string,
 	jumboRowClass: PropTypes.string,
 	linkClassColOne: PropTypes.string,
-	smallDescriptionSecondColClass: PropTypes.string
+	smallDescriptionSecondColClass: PropTypes.string,
+	secondColThirdLinkHref: PropTypes.string,
+	hrefSecondColSecondLink: PropTypes.string
 };
