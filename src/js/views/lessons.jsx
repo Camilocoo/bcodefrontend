@@ -20,7 +20,7 @@ export class Lessons extends React.Component {
 							filters bellow"
 				/>
 				<div className="row">
-					<div className="col border-top border-bottom d-flex justify-content-start ">
+					<div className="col-12 border-top border-bottom d-flex justify-content-start ">
 						<div className="px-1 py-2">
 							<Filter
 								label="Tags"
@@ -43,13 +43,22 @@ export class Lessons extends React.Component {
 						</div>
 						<div className="px-1 pl-1 py-2">
 							<Filter
-								label="Gender"
+								label="Author"
+								placeholder="Author:"
 								onChange={d => console.log(d)}
-								placeholder="Select an author"
-								multiselect={false}
 								options={[
-									{ label: "@alesanchezr", value: "male" },
-									{ label: "@camilocruz", value: "female" }
+									{
+										label: "@alesanchezr",
+										value: "@alesanchezr"
+									},
+									{
+										label: "@camilocruz",
+										value: "@camilocruz"
+									},
+									{
+										label: "@benequiroz",
+										value: "@benequiroz"
+									}
 								]}
 							/>
 						</div>

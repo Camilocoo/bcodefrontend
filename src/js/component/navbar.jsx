@@ -50,9 +50,8 @@ export class Navbar extends React.Component {
 										Learn To Code
 									</a>
 								</Link>
-								{/*{this.state.change && <hr className="my-4" />}*/}
 							</li>
-							<li className="nav-item mt-3">
+							<li className="nav-item mt-3 ">
 								<Link to="/aboutus" className="nav-link">
 									<a
 										className={`nav-link ${this.state

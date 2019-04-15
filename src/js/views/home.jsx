@@ -3,6 +3,7 @@ import { Jumbotron } from "../component/jumbotron.jsx";
 import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import { Context } from "../store/appContext.jsx";
+import moment from "moment";
 
 export class Home extends React.Component {
 	render() {
@@ -108,7 +109,11 @@ export class Home extends React.Component {
 											<div className="pr-3">
 												<p className="pl-3 h6 text-right font-weight-bold">
 													<i className="3x pl-3 ml-5 far fa-calendar-alt" />
-													{event.event_date}
+													{moment(
+														event.event_date
+													).format(
+														"MMMM Do YYYY, h:mm:ss a"
+													)}
 													<br />
 													<small className="text-secondary">
 														{event.address}

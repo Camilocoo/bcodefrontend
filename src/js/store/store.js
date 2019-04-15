@@ -17,15 +17,15 @@ const getState = ({ getStore, setStore }) => {
 					technologies: [
 						{
 							tech: "Nodejs",
-							color: "col-1.5 px-3 rounded tagsCol1"
+							color: "col-1.5 px-2 mx-1  rounded tagsCol1"
 						},
 						{
 							tech: "Bash",
-							color: "col-1.5 px-3 rounded tagsCol2"
+							color: "col-1.5 px-2 mx-1  rounded tagsCol2"
 						},
 						{
 							tech: "JSON",
-							color: "col-1.5 px-3 rounded tagsCol3"
+							color: "col-1.5 px-2 mx-1  rounded tagsCol3"
 						}
 					]
 				},
@@ -40,15 +40,15 @@ const getState = ({ getStore, setStore }) => {
 					technologies: [
 						{
 							tech: "Nodejs",
-							color: "col-1.5 px-3 rounded tagsCol1"
+							color: "col-1.5 px-2 mx-1  rounded tagsCol1"
 						},
 						{
 							tech: "Bash",
-							color: "col-1.5 px-3 rounded tagsCol2"
+							color: "col-1.5 px-2 mx-1 rounded tagsCol2"
 						},
 						{
 							tech: "JSON",
-							color: "col-1.5 px-3 rounded tagsCol3"
+							color: "col-1.5 px-2 mx-1 rounded tagsCol3"
 						}
 					]
 				},
@@ -65,31 +65,31 @@ const getState = ({ getStore, setStore }) => {
 					technologies: [
 						{
 							tech: "EloquentCRM",
-							color: "col-1.5 px-3 rounded tagsCol1"
+							color: "col-1.5 px-2 mx-1 rounded tagsCol1"
 						},
 						{
 							tech: "Bash",
-							color: "col-1.5 px-3 rounded tagsCol2"
+							color: "col-1.5 px-2 mx-1 rounded tagsCol2"
 						},
 						{
 							tech: "PHP",
-							color: "col-1.5 px-3 rounded tagsCol3"
+							color: "col-1.5 px-2 mx-1 rounded tagsCol3"
 						},
 						{
 							tech: "SlimPHP",
-							color: "col-1.5 px-3 rounded tagsCol4"
+							color: "col-1.5 px-2 mx-1 rounded tagsCol4"
 						},
 						{
 							tech: "MySQL",
-							color: "col-1.5 px-3 rounded tagsCol1"
+							color: "col-1.5 px-2 mx-1 rounded tagsCol1"
 						},
 						{
 							tech: "JSON",
-							color: "col-1.5 px-3 rounded tagsCol2"
+							color: "col-1.5 px-2 mx-1 rounded tagsCol2"
 						},
 						{
 							tech: "REST",
-							color: "col-1.5 px-3 rounded tagsCol3"
+							color: "col-1.5 px-2 mx-1 rounded tagsCol3"
 						}
 					]
 				},
@@ -104,31 +104,31 @@ const getState = ({ getStore, setStore }) => {
 					technologies: [
 						{
 							tech: "Markdown",
-							color: "col-1.5 px-3 rounded tagsCol1"
+							color: "col-1.5 px-2 mx-1 rounded tagsCol1"
 						},
 						{
 							tech: "PHP",
-							color: "col-1.5 px-3 rounded tagsCol2"
+							color: "col-1.5 px-2 mx-1 rounded tagsCol2"
 						},
 						{
 							tech: "MySQL",
-							color: "col-1.5 px-3 rounded tagsCol3"
+							color: "col-1.5 px-2 mx-1 rounded tagsCol3"
 						},
 						{
 							tech: "SQLite",
-							color: "col-1.5 px-3 rounded tagsCol4"
+							color: "col-1.5 px-2 mx-1 rounded tagsCol4"
 						},
 						{
 							tech: "SlimPHP",
-							color: "col-1.5 px-3 rounded tagsCol1"
+							color: "col-1.5 px-2 mx-1 rounded tagsCol1"
 						},
 						{
 							tech: "Static Files",
-							color: "col-1.5 px-3 rounded tagsCol2"
+							color: "col-1.5 px-2 mx-1 rounded tagsCol2"
 						},
 						{
 							tech: "REST",
-							color: "col-1.5 px-3 rounded tagsCol3"
+							color: "col-1.5 px-2 mx-1 rounded tagsCol3"
 						}
 					]
 				},
@@ -144,7 +144,7 @@ const getState = ({ getStore, setStore }) => {
 					technologies: [
 						{
 							tech: "React.js",
-							color: "col-1.5 px-3 rounded tagsCol1"
+							color: "col-1.5 px-2 mx-1 rounded tagsCol1"
 						}
 					]
 				},
@@ -160,7 +160,7 @@ const getState = ({ getStore, setStore }) => {
 					technologies: [
 						{
 							tech: "React.js",
-							color: "col-1.5 px-3 rounded tagsCol1"
+							color: "col-1.5 px-2 mx-1 rounded tagsCol1"
 						}
 					]
 				},
@@ -175,19 +175,19 @@ const getState = ({ getStore, setStore }) => {
 					technologies: [
 						{
 							tech: "React.js",
-							color: "col-1.5 px-3 rounded tagsCol1"
+							color: "col-1.5 px-2 mx-1 rounded tagsCol1"
 						},
 						{
 							tech: "Gatsby.js",
-							color: "col-1.5 px-3 rounded tagsCol2"
+							color: "col-1.5 px-2 mx-1 rounded tagsCol2"
 						},
 						{
 							tech: "CSS",
-							color: "col-1.5 px-3 rounded tagsCol3"
+							color: "col-1.5 px-2 mx-1 rounded tagsCol3"
 						},
 						{
 							tech: "Markdown",
-							color: "col-1.5 px-3 rounded tagsCol3"
+							color: "col-1.5 px-2 mx-1 rounded tagsCol3"
 						}
 					]
 				},
@@ -203,19 +203,19 @@ const getState = ({ getStore, setStore }) => {
 					technologies: [
 						{
 							tech: "React.js",
-							color: "col-1.5 px-3 rounded tagsCol1"
+							color: "col-1.5 px-2 mx-1 rounded tagsCol1"
 						},
 						{
 							tech: "Sass",
-							color: "col-1.5 px-3 rounded tagsCol2"
+							color: "col-1.5 px-2 mx-1 rounded tagsCol2"
 						},
 						{
 							tech: "CSS",
-							color: "col-1.5 px-3 rounded tagsCol3"
+							color: "col-1.5 px-2 mx-1 rounded tagsCol3"
 						},
 						{
 							tech: "HTML",
-							color: "col-1.5 px-3 rounded tagsCol3"
+							color: "col-1.5 px-2 mx-1 rounded tagsCol3"
 						}
 					]
 				},
@@ -231,19 +231,19 @@ const getState = ({ getStore, setStore }) => {
 					technologies: [
 						{
 							tech: "React.js",
-							color: "col-1.5 px-3 rounded tagsCol1"
+							color: "col-1.5 px-2 mx-1 rounded tagsCol1"
 						},
 						{
 							tech: "Sass",
-							color: "col-1.5 px-3 rounded tagsCol2"
+							color: "col-1.5 px-2 mx-1 rounded tagsCol2"
 						},
 						{
 							tech: "CSS",
-							color: "col-1.5 px-3 rounded tagsCol3"
+							color: "col-1.5 px-2 mx-1 rounded tagsCol3"
 						},
 						{
 							tech: "HTML",
-							color: "col-1.5 px-3 rounded tagsCol3"
+							color: "col-1.5 px-2 mx-1 rounded tagsCol3"
 						}
 					]
 				},
@@ -257,19 +257,19 @@ const getState = ({ getStore, setStore }) => {
 					technologies: [
 						{
 							tech: "React.js",
-							color: "col-1.5 px-3 rounded tagsCol1"
+							color: "col-1.5 px-2 mx-1 rounded tagsCol1"
 						},
 						{
 							tech: "Sass",
-							color: "col-1.5 px-3 rounded tagsCol2"
+							color: "col-1.5 px-2 mx-1 rounded tagsCol2"
 						},
 						{
 							tech: "CSS",
-							color: "col-1.5 px-3 rounded tagsCol3"
+							color: "col-1.5 px-2 mx-1 rounded tagsCol3"
 						},
 						{
 							tech: "HTML",
-							color: "col-1.5 px-3 rounded tagsCol3"
+							color: "col-1.5 px-2 mx-1 mx-1 rounded tagsCol3"
 						}
 					]
 				}

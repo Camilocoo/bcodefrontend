@@ -45,6 +45,23 @@ a{
 .btnColor{
     background-color: #007296;
     border-color: #007296;
+    color:white;
 }
 
+.tagsCol1{
+    background-color: #97F8ED
+}
+.tagsCol2{
+    background-color: #C2F8D0
+}
+.tagsCol3{
+    background-color: #BCF6AA
+}
+.tagsCol4{
+    background-color: #E0F790
+}
 
+.options-component{
+     background-color: white;
+    z-index: 20;
+}

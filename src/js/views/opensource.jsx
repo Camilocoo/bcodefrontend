@@ -3,6 +3,7 @@ import { SmallJumbotron } from "../component/smalljumbo.jsx";
 import { Filter } from "@breathecode/ui-components";
 import { Context } from "../store/appContext.jsx";
 import PropTypes from "prop-types";
+import moment from "moment";
 
 export class OpenSource extends React.Component {
 	render() {
@@ -89,27 +90,25 @@ export class OpenSource extends React.Component {
 												<p className="lead">
 													{project.description}
 												</p>
-												<div className="row ">
-													<div className="col-12 d-flex justify-content-start">
-														{project.technologies.map(
-															(
-																technologie,
-																index
-															) => {
-																return (
-																	<p
-																		className="pr-3"
-																		key={
-																			index
-																		}>
-																		{
-																			technologie.tech
-																		}
-																	</p>
-																);
-															}
-														)}
-													</div>
+												<div className="row mb-2">
+													{project.technologies.map(
+														(
+															technologie,
+															index
+														) => {
+															return (
+																<div
+																	key={index}
+																	className={
+																		technologie.color
+																	}>
+																	{
+																		technologie.tech
+																	}
+																</div>
+															);
+														}
+													)}
 												</div>
 												<div>
 													<a
@@ -119,8 +118,8 @@ export class OpenSource extends React.Component {
 															null,
 															project.gitIssueUrl
 														)}
-														type="button"
-														className="btn btn-info btn-sm btnColor mr-1">
+														rel="noopener"
+														className="btn btn-default btn-sm btnColor mr-1">
 														Project
 													</a>
 													<a
@@ -129,8 +128,8 @@ export class OpenSource extends React.Component {
 															null,
 															project.gitIssueUrl
 														)}
-														type="button"
-														className="btn btn-info btn-sm btnColor mr-1">
+														rel="noopener"
+														className="btn btn-sm btnColor mr-1">
 														README.md
 													</a>
 												</div>
@@ -176,7 +175,7 @@ class IssueFetch extends React.Component {
 			return (
 				<a
 					href={this.props.issuesFunction(null, this.props.issueLink)}
-					className="btn  d-flex btnRED text-light rounded btn-sm mr-5 my-1">
+					className="btn d-flex btnRED text-light rounded btn-sm mr-0 mr-md-5 mb-4 mb-sm-0 my-1">
 					<i className="fas fa-exclamation-triangle" />
 					&nbsp;
 					{items.length}
