@@ -86,7 +86,7 @@ export class Lessons extends React.Component {
 												{lesson.subtitle}
 											</p>
 										</div>
-										<hr className="my-4" />
+										<hr className="my-4 mx-5" />
 									</div>
 								);
 							});

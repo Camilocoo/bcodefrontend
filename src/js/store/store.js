@@ -276,7 +276,17 @@ const getState = ({ getStore, setStore }) => {
 			]
 		},
 		actions: {
-			issuesFeed(urlIssue, urlReadme) {
+			issuesFeed(urlIssue, issueLink, readmeLink, projectLink) {
+				if (projectLink) {
+					let splitUrl = projectLink.split("/");
+					let companyName = splitUrl[3];
+					let projectName = splitUrl[4];
+					let finalUrl =
+						"https://github.com/" + companyName + "/" + projectName;
+
+					return finalUrl;
+				}
+
 				if (urlIssue) {
 					let splitUrl = urlIssue.split("/");
 					let companyName = splitUrl[3];
@@ -290,8 +300,21 @@ const getState = ({ getStore, setStore }) => {
 					return finalUrl;
 				}
 
-				if (urlReadme) {
-					let splitUrl = urlReadme.split("/");
+				if (readmeLink) {
+					let splitUrl = readmeLink.split("/");
+					let companyName = splitUrl[3];
+					let projectName = splitUrl[4];
+					let finalUrl =
+						"https://github.com/" +
+						companyName +
+						"/" +
+						projectName +
+						"/blob/master/README.md";
+					return finalUrl;
+				}
+
+				if (issueLink) {
+					let splitUrl = issueLink.split("/");
 					let companyName = splitUrl[3];
 					let projectName = splitUrl[4];
 					let finalUrl =

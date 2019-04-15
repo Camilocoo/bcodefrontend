@@ -35,3 +35,16 @@ a{
 .gradient{
   background-image: linear-gradient(#E9ECEF, #FFFFFF);
 }
+
+.btnRED{
+    background-color:#ff0000c7;
+    border-color: #ff0000c7;
+    
+}
+
+.btnColor{
+    background-color: #007296;
+    border-color: #007296;
+}
+
+
