@@ -24,6 +24,7 @@ const Store = PassedComponent => {
 				.then(lessons => {
 					let { store } = this.state;
 					store.lessons = lessons;
+					store.tags = [].concat(lessons.map(l => l.tags));
 					this.setState({
 						store
 					});

@@ -23,7 +23,7 @@ a{
 }
 
 .textDecorationGreen{
-    color: #28A745;
+    color: #28A745 !important;
     text-decoration: underline;   
 }
 
@@ -63,5 +63,5 @@ a{
 
 .options-component{
      background-color: white;
-    z-index: 20;
+        z-index: 20;
 }
