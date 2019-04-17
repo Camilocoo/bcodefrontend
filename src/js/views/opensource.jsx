@@ -90,7 +90,7 @@ export class OpenSource extends React.Component {
 												<p className="lead">
 													{project.description}
 												</p>
-												<div className="row mb-2">
+												<div className="row mb-2 pl-2">
 													{project.technologies.map(
 														(
 															technologie,
@@ -119,7 +119,7 @@ export class OpenSource extends React.Component {
 															project.gitIssueUrl
 														)}
 														rel="noopener"
-														className="btn btn-default btn-sm btnColor mr-1">
+														className="btn btn-outline-success buttonHeight mr-2">
 														Project
 													</a>
 													<a
@@ -129,7 +129,7 @@ export class OpenSource extends React.Component {
 															project.gitIssueUrl
 														)}
 														rel="noopener"
-														className="btn btn-sm btnColor mr-1">
+														className="btn btn-outline-primary buttonHeight  px-2 ">
 														README.md
 													</a>
 												</div>
@@ -175,7 +175,7 @@ class IssueFetch extends React.Component {
 			return (
 				<a
 					href={this.props.issuesFunction(null, this.props.issueLink)}
-					className="btn d-flex btnRED text-light rounded btn-sm mr-0 mr-md-5 mb-4 mb-sm-0 my-1">
+					className="btn d-flex btnRED text-danger rounded btn-sm mr-0 mr-md-5 mb-4 mb-sm-0 my-1">
 					<i className="fas fa-exclamation-triangle" />
 					&nbsp;
 					{items.length}

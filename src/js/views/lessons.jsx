@@ -8,9 +8,11 @@ export class Lessons extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			selectedTags: []
+			selectedTags: [],
+			uniqueTags: []
 		};
 	}
+
 	render() {
 		return (
 			<div>
@@ -40,42 +42,14 @@ export class Lessons extends React.Component {
 														selectedTags: d
 													})
 												}
-												options={[
-													{
-														label: "CSS",
-														value: "CSS"
-													},
-													{
-														label: "react.js",
-														value: "react.js"
-													},
-													{
-														label:
-															"Object Oriented Programming",
-														value:
-															"Object Oriented Programming"
-													},
-													{
-														label: "HTML",
-														value: "HTML"
-													},
-													{
-														label: "Events",
-														value: "Events"
-													},
-													{
-														label: "Forms",
-														value: "Forms"
-													},
-													{
-														label: "Webpack",
-														value: "Webpack"
-													},
-													{
-														label: "Flux",
-														value: "Flux"
-													}
-												]}
+												options={actions
+													.filterTags(store.tags)
+													.map((tag, index) => {
+														return {
+															label: tag,
+															value: tag
+														};
+													})}
 											/>
 										</div>
 										<div className="px-1 pl-1 py-2">
@@ -123,51 +97,70 @@ export class Lessons extends React.Component {
 										</div>
 									</div>
 								</div>
-								<div className="row">
-									{store.lessons
-										.filter(l => {
+
+								{store.lessons
+									.filter(l => {
+										if (this.state.selectedTags.length == 0)
+											return true;
+										for (
+											let i = 0;
+											i < this.state.selectedTags.length;
+											i++
+										) {
 											if (
-												this.state.selectedTags
-													.length == 0
+												l.tags.includes(
+													this.state.selectedTags[i]
+												)
 											)
 												return true;
-											for (
-												let i = 0;
-												i <
-												this.state.selectedTags.length;
-												i++
-											) {
-												if (
-													l.tags.includes(
-														this.state.selectedTags[
-															i
-														]
-													)
-												)
-													return true;
-											}
-											return false;
-										})
-										.map((lesson, index) => {
-											return (
-												<div key={index}>
-													<div className="col-12 px-5 py-5">
-														<a
-															className="h2 text-dark btn-default"
-															href={actions.lessonUrl(
-																lesson.slug
-															)}>
-															{lesson.title}
-														</a>
-														<p className="lead">
-															{lesson.subtitle}
-														</p>
+										}
+										return false;
+									})
+									.map((lesson, index) => {
+										return (
+											<div key={index}>
+												<div className="row">
+													<div className="col-12 px-5 py-3">
+														<div className="pl-3">
+															<a
+																className="h2 text-dark btn-default"
+																href={actions.lessonUrl(
+																	lesson.slug
+																)}>
+																{lesson.title}
+															</a>
+															<p className="lead mt-2">
+																{
+																	lesson.subtitle
+																}
+															</p>
+															<div className="row pl-2">
+																{lesson.tags.map(
+																	(
+																		tag,
+																		index
+																	) => {
+																		return (
+																			<div
+																				key={
+																					index
+																				}
+																				className="col-1.5 px-2 mx-1 rounded tagsCol3">
+																				{
+																					tag
+																				}
+																			</div>
+																		);
+																	}
+																)}
+															</div>
+														</div>
 													</div>
-													<hr className="my-4 mx-5" />
 												</div>
-											);
-										})}
-								</div>
+												<hr className="my-4 mx-5" />
+											</div>
+										);
+									})}
 							</div>
 						);
 					}}

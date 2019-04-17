@@ -37,8 +37,8 @@ a{
 }
 
 .btnRED{
-    background-color:#ff0000c7;
-    border-color: #ff0000c7;
+    background-color:#ff000000;
+    border-color: #ff0000c7 !important;
     
 }
 
@@ -49,16 +49,20 @@ a{
 }
 
 .tagsCol1{
-    background-color: #97F8ED
+    background-color: #fff;
+    border:1px solid #CCCCCC;
 }
 .tagsCol2{
-    background-color: #C2F8D0
+     background-color: #fff;
+    border:1px solid #CCCCCC;
 }
 .tagsCol3{
-    background-color: #BCF6AA
+     background-color: #fff;
+    border:1px solid #CCCCCC;
 }
 .tagsCol4{
-    background-color: #E0F790
+    background-color: #fff;
+    border:1px solid #CCCCCC;
 }
 
 .options-component{

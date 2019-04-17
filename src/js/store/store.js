@@ -1,6 +1,7 @@
 const getState = ({ getStore, setStore }) => {
 	return {
 		store: {
+			tags: [],
 			lessons: [],
 			events: [],
 			markdown: {},
@@ -330,6 +331,26 @@ const getState = ({ getStore, setStore }) => {
 				let fullLink =
 					"https://docs.content.breatheco.de/lesson/" + slug;
 				return fullLink;
+			},
+			filterTags: array => {
+				let uniqueTags = [];
+
+				let count = 0;
+				let found = false;
+				for (let i = 0; i < array.length; i++) {
+					for (let y = 0; y < uniqueTags.length; y++) {
+						if (array[i] == uniqueTags[y]) {
+							found = true;
+						}
+					}
+					count++;
+					if ((count = 1 && found == false)) {
+						uniqueTags.push(array[i]);
+					}
+					count = 0;
+					found = false;
+				}
+				return uniqueTags;
 			}
 		}
 	};
