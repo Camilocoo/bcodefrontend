@@ -1,11 +1,18 @@
 import React from "react";
 import { SmallJumbotron } from "../component/smalljumbo.jsx";
-import { Filter } from "@breathecode/ui-components";
+import { Filter, Icon } from "@breathecode/ui-components";
 import { Context } from "../store/appContext.jsx";
 import PropTypes from "prop-types";
 import moment from "moment";
 
 export class OpenSource extends React.Component {
+	constructor() {
+		super();
+		this.state = {
+			selectedTechnologies: []
+		};
+	}
+
 	render() {
 		return (
 			<div>
@@ -22,43 +29,35 @@ export class OpenSource extends React.Component {
 				<div className="row">
 					<div className="col d-flex justify-content-start border-top border-bottom py-1">
 						<div className="pl-1">
-							<Filter
-								label="Tags"
-								placeholder="Select one or more tags"
-								onChange={d => console.log(d)}
-								options={[
-									{ label: "CSS", value: "CSS" },
-									{ label: "react.js", value: "react.js" },
-									{
-										label: "Object Oriented Programming",
-										value: "Object Oriented Programming"
-									},
-									{ label: "HTML", value: "HTML" },
-									{ label: "Events", value: "Events" },
-									{ label: "Forms", value: "Forms" },
-									{ label: "Webpack", value: "Webpack" },
-									{ label: "Flux", value: "Flux" }
-								]}
-							/>
+							<Context.Consumer>
+								{({ store, actions }) => {
+									return (
+										<Filter
+											label="Tags"
+											withToggler={false}
+											placeholder="Select one or more tags"
+											onChange={d =>
+												this.setState({
+													selectedTechnologies: d
+												})
+											}
+											options={actions
+												.filterTags(
+													actions.concatTechnologies(
+														store.openSource
+													)
+												)
+												.map(tech => {
+													return {
+														label: tech,
+														value: tech
+													};
+												})}
+										/>
+									);
+								}}
+							</Context.Consumer>
 						</div>
-						<Filter
-							label="Tags"
-							placeholder="Select one or more tags"
-							onChange={d => console.log(d)}
-							options={[
-								{ label: "CSS", value: "CSS" },
-								{ label: "react.js", value: "react.js" },
-								{
-									label: "Object Oriented Programming",
-									value: "Object Oriented Programming"
-								},
-								{ label: "HTML", value: "HTML" },
-								{ label: "Events", value: "Events" },
-								{ label: "Forms", value: "Forms" },
-								{ label: "Webpack", value: "Webpack" },
-								{ label: "Flux", value: "Flux" }
-							]}
-						/>
 					</div>
 				</div>
 				<div className="row">
@@ -87,7 +86,7 @@ export class OpenSource extends React.Component {
 												<a className="h2 text-dark">
 													{project.title}
 												</a>
-												<p className="lead">
+												<p className="lead mt-3">
 													{project.description}
 												</p>
 												<div className="row mb-2 pl-2">

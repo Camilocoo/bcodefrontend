@@ -47,10 +47,14 @@ export class Jumbotron extends React.Component {
 							<small>{this.props.smallDescriptionFirstCol}</small>
 						</p>
 						<div className={this.props.buttonAlignCenterClass}>
-							<Button
-								classNameButton={this.props.buttonColOneClass}
-								buttonText={this.props.buttonColOneText}
-							/>
+							<Link to="/contributing">
+								<Button
+									classNameButton={
+										this.props.buttonColOneClass
+									}
+									buttonText={this.props.buttonColOneText}
+								/>
+							</Link>
 						</div>
 					</div>
 					<div className={this.props.secondColumnClass}>

@@ -9,10 +9,9 @@ export class Lessons extends React.Component {
 		super();
 		this.state = {
 			selectedTags: [],
-			uniqueTags: []
+			selectedAuthors: []
 		};
 	}
-
 	render() {
 		return (
 			<div>
@@ -56,21 +55,20 @@ export class Lessons extends React.Component {
 											<Filter
 												label="Author"
 												placeholder="Author:"
-												onChange={d => console.log(d)}
-												options={[
-													{
-														label: "@alesanchezr",
-														value: "@alesanchezr"
-													},
-													{
-														label: "@camilocruz",
-														value: "@camilocruz"
-													},
-													{
-														label: "@benequiroz",
-														value: "@benequiroz"
-													}
-												]}
+												onChange={d =>
+													this.setState({
+														selectedTags: d
+													})
+												}
+												options={actions
+													.filterTags(store.authors)
+													.map(author => {
+														return {
+															label: author,
+															value: author
+														};
+													})}
+												withToggler={false}
 											/>
 										</div>
 

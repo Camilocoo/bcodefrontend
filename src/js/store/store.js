@@ -1,6 +1,7 @@
 const getState = ({ getStore, setStore }) => {
 	return {
 		store: {
+			authors: [],
 			tags: [],
 			lessons: [],
 			events: [],
@@ -333,24 +334,23 @@ const getState = ({ getStore, setStore }) => {
 				return fullLink;
 			},
 			filterTags: array => {
-				let uniqueTags = [];
-
-				let count = 0;
-				let found = false;
-				for (let i = 0; i < array.length; i++) {
-					for (let y = 0; y < uniqueTags.length; y++) {
-						if (array[i] == uniqueTags[y]) {
-							found = true;
-						}
+				var uniqueTags = [];
+				return array.filter(tag => {
+					if (!uniqueTags.includes(tag)) {
+						uniqueTags.push(tag);
+						return true;
 					}
-					count++;
-					if ((count = 1 && found == false)) {
-						uniqueTags.push(array[i]);
-					}
-					count = 0;
-					found = false;
-				}
-				return uniqueTags;
+					return false;
+				});
+			},
+			concatTechnologies: openSourceArray => {
+				let technologies = [];
+				openSourceArray.forEach(item => {
+					item.technologies.forEach(technologie => {
+						technologies.push(technologie.tech);
+					});
+				});
+				return technologies;
 			}
 		}
 	};
