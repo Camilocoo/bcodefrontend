@@ -53,15 +53,10 @@ export class Home extends React.Component {
 				<div className="jumbotron jumbotron-fluid blueButton py-4">
 					<div className="container text-center">
 						<p className=" h3 font-weight-bold">Join Us</p>
-						<p className="h6">
-							Get notified about our events, projects and
-							contributions
-						</p>
+						<p className="h6">Get notified about our events, projects and contributions</p>
 						<form className="form-inline d-flex justify-content-center">
 							<div className="form-group mb-2 ">
-								<label
-									htmlFor="staticEmail2"
-									className="sr-only">
+								<label htmlFor="staticEmail2" className="sr-only">
 									Email
 								</label>
 								<input
@@ -72,9 +67,7 @@ export class Home extends React.Component {
 								/>
 							</div>
 							<div className="form-group mx-sm-3 mb-2">
-								<label
-									htmlFor="inputPassword2"
-									className="sr-only">
+								<label htmlFor="inputPassword2" className="sr-only">
 									Password
 								</label>
 								<input
@@ -84,9 +77,7 @@ export class Home extends React.Component {
 									placeholder="Email Adress"
 								/>
 							</div>
-							<button
-								type="submit"
-								className="btn btn-primary mb-2">
+							<button type="submit" className="btn btn-primary mb-2">
 								Join The Organization
 							</button>
 						</form>
@@ -103,17 +94,11 @@ export class Home extends React.Component {
 							{({ store, actions }) => {
 								return store.events.map((event, index) => {
 									return (
-										<div
-											key={index}
-											className="col-12 d-flex">
+										<div key={index} className="col-12 d-flex">
 											<div className="pr-3">
 												<p className="pl-3 h6 text-right font-weight-bold">
 													<i className="3x pl-3 ml-5 far fa-calendar-alt" />
-													{moment(
-														event.event_date
-													).format(
-														"MMMM Do YYYY, h:mm:ss a"
-													)}
+													{moment(event.event_date).format("MMMM Do YYYY, h:mm:ss a")}
 													<br />
 													<small className="text-secondary">
 														{event.address}
@@ -123,12 +108,8 @@ export class Home extends React.Component {
 												</p>
 											</div>
 											<div>
-												<p className="h5">
-													{event.title}
-												</p>
-												<p className="h6 text-secondary">
-													{event.type}
-												</p>
+												<p className="h5">{event.title}</p>
+												<p className="h6 text-secondary">{event.type}</p>
 												<br />
 											</div>
 										</div>

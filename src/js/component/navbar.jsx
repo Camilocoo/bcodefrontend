@@ -37,35 +37,26 @@ export class Navbar extends React.Component {
 					</button>
 
 					<div
-						className={`navbar-collapse collapse ${this.state
-							.change && "show"}`}
+						className={`navbar-collapse collapse ${this.state.change && "show"}`}
 						id="navbarSupportedContent">
 						<ul className="navbar-nav mr-auto text-center">
 							<li className="nav-item mt-3">
 								<Link to="/lessons" className="nav-link">
-									<a
-										className={`nav-link ${this.state
-											.change && "border-bottom"}`}
-										href="#">
+									<a className={`nav-link ${this.state.change && "border-bottom"}`} href="#">
 										Learn To Code
 									</a>
 								</Link>
 							</li>
 							<li className="nav-item mt-3 ">
 								<Link to="/aboutus" className="nav-link">
-									<a
-										className={`nav-link ${this.state
-											.change && "border-bottom"}`}
-										href="#">
+									<a className={`nav-link ${this.state.change && "border-bottom"}`} href="#">
 										About Us
 									</a>
 								</Link>
 							</li>
 							<li className="nav-item mt-3">
 								<Link to="/opensource" className="nav-link">
-									<a
-										className={`nav-link ${this.state
-											.change && "border-bottom"}`}>
+									<a className={`nav-link ${this.state.change && "border-bottom"}`}>
 										Open Source Projects
 									</a>
 								</Link>
@@ -74,6 +65,7 @@ export class Navbar extends React.Component {
 						<form className="form-inline my-2 my-lg-0  d-flex justify-content-center">
 							<Link to="/contributing" className="nav-link">
 								<Button
+									href="/contributing"
 									classNameButton=" btn btn-outline-success buttonHeight mr-2"
 									buttonText="Start Contributing"
 								/>
@@ -81,6 +73,7 @@ export class Navbar extends React.Component {
 							<Button
 								classNameButton="btn btn-outline-primary buttonHeight  px-5"
 								buttonText="login"
+								href="https://student.breatheco.de/login"
 							/>
 						</form>
 					</div>

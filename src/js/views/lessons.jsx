@@ -12,6 +12,25 @@ export class Lessons extends React.Component {
 			selectedAuthors: []
 		};
 	}
+
+	filterTags = l => {
+		if (this.state.selectedTags.length == 0) return true;
+		for (let i = 0; i < this.state.selectedTags.length; i++) {
+			if (l.tags.includes(this.state.selectedTags[i].value)) return true;
+		}
+		return false;
+	};
+	filterAuthors = l => {
+		if (this.state.selectedAuthors.length == 0) return true;
+		for (let i = 0; i < this.state.selectedAuthors.length; i++) {
+			if (l.authors == null) {
+				return false;
+			}
+			if (l.authors.includes(this.state.selectedAuthors[i].value)) return true;
+		}
+		return false;
+	};
+
 	render() {
 		return (
 			<div>
@@ -21,7 +40,7 @@ export class Lessons extends React.Component {
 							<div>
 								<SmallJumbotron
 									jumboClass="jumbotron jumbotron-fluid mb-0 bg-white"
-									containerClass="pl-4  container-fluid"
+									containerClass="pl-4  container"
 									headerClass="display-4 font-weight-bold  text-left"
 									headerText="Lessons Published"
 									pClass="lead  text-left"
@@ -30,132 +49,87 @@ export class Lessons extends React.Component {
 										members, search for a partiulars lesson using the
 										filters bellow"
 								/>
-								<div className="row">
-									<div className="col-12 border-top border-bottom d-flex justify-content-start ">
-										<div className="px-1 py-2">
-											<Filter
-												label="Tags"
-												placeholder="Select one or more tags"
-												onChange={d =>
-													this.setState({
-														selectedTags: d
-													})
-												}
-												options={actions
-													.filterTags(store.tags)
-													.map((tag, index) => {
-														return {
-															label: tag,
-															value: tag
-														};
-													})}
-											/>
-										</div>
-										<div className="px-1 pl-1 py-2">
-											<Filter
-												label="Author"
-												placeholder="Author:"
-												onChange={d =>
-													this.setState({
-														selectedTags: d
-													})
-												}
-												options={actions
-													.filterTags(store.authors)
-													.map(author => {
-														return {
-															label: author,
-															value: author
-														};
-													})}
-												withToggler={false}
-											/>
-										</div>
-
-										<div className="px-1 py-2">
-											<Filter
-												label="Tags"
-												placeholder="Search My Name"
-												onChange={d => console.log(d)}
-												options={[
-													{
-														label: "html",
-														value: "html"
-													},
-													{
-														label: "react.js",
-														value: "react.js"
-													},
-													{
-														label: "javascript",
-														value: "javascript"
-													}
-												]}
-											/>
+								<div className="row sticky-top bg-white border-top border-bottom">
+									<div className="container">
+										<div className="row">
+											<div className="col-12  d-flex justify-content-start ">
+												<div className="px-1 py-2">
+													<Filter
+														label="Tags"
+														placeholder="Select one or more tags"
+														onChange={d =>
+															this.setState({
+																selectedTags: d
+															})
+														}
+														options={actions.filterTags(store.tags).map((tag, index) => {
+															return {
+																label: tag,
+																value: tag
+															};
+														})}
+													/>
+												</div>
+												<div className="px-1 pl-1 py-2">
+													<Filter
+														label="Author"
+														placeholder="Author:"
+														onChange={d =>
+															this.setState({
+																selectedAuthors: d
+															})
+														}
+														options={actions.filterTags(store.authors).map(author => {
+															return {
+																label: author,
+																value: author
+															};
+														})}
+														withToggler={false}
+													/>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
 
 								{store.lessons
-									.filter(l => {
-										if (this.state.selectedTags.length == 0)
-											return true;
-										for (
-											let i = 0;
-											i < this.state.selectedTags.length;
-											i++
-										) {
-											if (
-												l.tags.includes(
-													this.state.selectedTags[i]
-												)
-											)
-												return true;
-										}
-										return false;
-									})
+									.filter(this.filterAuthors)
+									.filter(this.filterTags)
 									.map((lesson, index) => {
 										return (
-											<div key={index}>
+											<div className="container" key={index}>
 												<div className="row">
-													<div className="col-12 px-5 py-3">
+													<div className="col-12  py-3">
 														<div className="pl-3">
 															<a
 																className="h2 text-dark btn-default"
-																href={actions.lessonUrl(
-																	lesson.slug
-																)}>
+																href={actions.lessonUrl(lesson.slug)}>
 																{lesson.title}
 															</a>
-															<p className="lead mt-2">
-																{
-																	lesson.subtitle
-																}
-															</p>
+															<div className="row">
+																<div className="col py-2 text-dark">
+																	{lesson.authors
+																		? "Contributors: " + "@" + lesson.authors
+																		: " "}
+																</div>
+															</div>
+															<p className="lead text-dark ">{lesson.subtitle}</p>
 															<div className="row pl-2">
-																{lesson.tags.map(
-																	(
-																		tag,
-																		index
-																	) => {
-																		return (
-																			<div
-																				key={
-																					index
-																				}
-																				className="col-1.5 px-2 mx-1 rounded tagsCol3">
-																				{
-																					tag
-																				}
-																			</div>
-																		);
-																	}
-																)}
+																{lesson.tags.map((tag, index) => {
+																	return (
+																		<div
+																			key={index}
+																			className="col-1.5 px-2 mx-1 rounded tagsCol3">
+																			{tag}
+																		</div>
+																	);
+																})}
 															</div>
 														</div>
 													</div>
 												</div>
-												<hr className="my-4 mx-5" />
+												<hr className="my-4 " />
 											</div>
 										);
 									})}

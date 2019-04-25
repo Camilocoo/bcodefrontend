@@ -18,7 +18,7 @@ export class OpenSource extends React.Component {
 			<div>
 				<SmallJumbotron
 					jumboClass="jumbotron jumbotron-fluid mb-0 bg-white"
-					containerClass="pl-4  container-fluid"
+					containerClass="pl-4 container"
 					headerClass="display-4 font-weight-bold text-left"
 					headerText="Open Source Projects"
 					pClass="lead  text-left"
@@ -26,120 +26,114 @@ export class OpenSource extends React.Component {
 					spanClass="h3 text-secondary"
 					spanContent=".md"
 				/>
-				<div className="row">
-					<div className="col d-flex justify-content-start border-top border-bottom py-1">
-						<div className="pl-1">
-							<Context.Consumer>
-								{({ store, actions }) => {
-									return (
-										<Filter
-											label="Tags"
-											withToggler={false}
-											placeholder="Select one or more tags"
-											onChange={d =>
-												this.setState({
-													selectedTechnologies: d
-												})
-											}
-											options={actions
-												.filterTags(
-													actions.concatTechnologies(
-														store.openSource
-													)
-												)
-												.map(tech => {
-													return {
-														label: tech,
-														value: tech
-													};
-												})}
-										/>
-									);
-								}}
-							</Context.Consumer>
+				<div className="row sticky-top bg-white border-top border-bottom">
+					<div className="container">
+						<div className="row">
+							<div className="col d-flex justify-content-start  py-1">
+								<div className="pl-1">
+									<Context.Consumer>
+										{({ store, actions }) => {
+											return (
+												<Filter
+													label="Tags"
+													withToggler={false}
+													placeholder="Select one or more tags"
+													onChange={d =>
+														this.setState({
+															selectedTechnologies: d
+														})
+													}
+													options={actions
+														.filterTags(actions.concatTechnologies(store.openSource))
+														.map(tech => {
+															return {
+																label: tech,
+																value: tech
+															};
+														})}
+												/>
+											);
+										}}
+									</Context.Consumer>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div className="row">
-					<Context.Consumer>
-						{({ store, actions }) => {
-							return store.openSource.map((project, index) => {
-								return (
-									<div key={index} className="col-12">
-										<div className="row py-2">
-											<div className="col text ml-5 pt-3">
-												<div className="row">
-													<div className="col-12 d-flex justify-content-end">
-														<IssueFetch
-															issuesFunction={
-																actions.issuesFeed
-															}
-															gitIssueUrl={
-																project.gitIssueUrl
-															}
-															issueLink={
-																project.gitIssueUrl
-															}
-														/>
+				<div className="container">
+					<div className="row">
+						<Context.Consumer>
+							{({ store, actions }) => {
+								return store.openSource
+									.filter(t => {
+										if (this.state.selectedTechnologies.length == 0) return true;
+										for (let i = 0; i < this.state.selectedTechnologies.length; i++) {
+											if (
+												actions
+													.filterTechnologies(t)
+													.includes(this.state.selectedTechnologies[i].value)
+											)
+												return true;
+										}
+										return false;
+									})
+									.map((project, index) => {
+										return (
+											<div key={index} className="col-12">
+												<div className="row py-2">
+													<div className="col text  pt-3">
+														<div className="row">
+															<div className="col-12 d-flex justify-content-end">
+																<IssueFetch
+																	issuesFunction={actions.issuesFeed}
+																	gitIssueUrl={project.gitIssueUrl}
+																	issueLink={project.gitIssueUrl}
+																/>
+															</div>
+														</div>
+														<a className="h2 text-dark">{project.title}</a>
+														<p className="lead mt-3">{project.description}</p>
+														<div className="row mb-2 pl-2">
+															{project.technologies.map((technologie, index) => {
+																return (
+																	<div key={index} className={technologie.color}>
+																		{technologie.tech}
+																	</div>
+																);
+															})}
+														</div>
+														<div>
+															<a
+																href={actions.issuesFeed(
+																	null,
+																	null,
+																	null,
+																	project.gitIssueUrl
+																)}
+																rel="noopener"
+																className="btn btn-outline-success buttonHeight mr-2">
+																Project
+															</a>
+															<a
+																href={actions.issuesFeed(
+																	null,
+																	null,
+																	project.gitIssueUrl
+																)}
+																rel="noopener"
+																className="btn btn-outline-primary buttonHeight  px-2 ">
+																README.md
+															</a>
+														</div>
 													</div>
 												</div>
-												<a className="h2 text-dark">
-													{project.title}
-												</a>
-												<p className="lead mt-3">
-													{project.description}
-												</p>
-												<div className="row mb-2 pl-2">
-													{project.technologies.map(
-														(
-															technologie,
-															index
-														) => {
-															return (
-																<div
-																	key={index}
-																	className={
-																		technologie.color
-																	}>
-																	{
-																		technologie.tech
-																	}
-																</div>
-															);
-														}
-													)}
-												</div>
-												<div>
-													<a
-														href={actions.issuesFeed(
-															null,
-															null,
-															null,
-															project.gitIssueUrl
-														)}
-														rel="noopener"
-														className="btn btn-outline-success buttonHeight mr-2">
-														Project
-													</a>
-													<a
-														href={actions.issuesFeed(
-															null,
-															null,
-															project.gitIssueUrl
-														)}
-														rel="noopener"
-														className="btn btn-outline-primary buttonHeight  px-2 ">
-														README.md
-													</a>
-												</div>
+												<hr className="my-4" />
 											</div>
-										</div>
-										<hr className="my-4 mx-5" />
-									</div>
-								);
-							});
-						}}
-					</Context.Consumer>
+										);
+									});
+							}}
+						</Context.Consumer>
+					</div>
 				</div>
 			</div>
 		);

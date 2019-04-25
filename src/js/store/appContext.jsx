@@ -17,9 +17,7 @@ const Store = PassedComponent => {
 		}
 
 		componentDidMount() {
-			fetch(
-				"http://assets.breatheco.de/apis/lesson/all/v2?status=published"
-			)
+			fetch("http://assets.breatheco.de/apis/lesson/all/v2?status=published")
 				.then(res => res.json())
 				.then(lessons => {
 					let { store } = this.state;
@@ -31,9 +29,7 @@ const Store = PassedComponent => {
 					});
 				});
 
-			fetch(
-				"http://assets.breatheco.de/apis/event/all?status=published&location=downtown-miami&status=upcoming"
-			)
+			fetch("http://assets.breatheco.de/apis/event/all?status=published&location=downtown-miami&status=upcoming")
 				.then(res => res.json())
 				.then(events => {
 					let { store } = this.state;
@@ -43,13 +39,20 @@ const Store = PassedComponent => {
 					});
 				});
 
-			fetch(
-				"https://raw.githubusercontent.com/breatheco-de/main-documentation/master/README.md"
-			)
+			fetch("https://raw.githubusercontent.com/breatheco-de/main-documentation/master/README.md")
 				.then(res => res.text())
 				.then(markdown => {
 					let { store } = this.state;
 					store.markdown = markdown;
+					this.setState({
+						store
+					});
+				});
+			fetch("http://assets.breatheco.de/apis/github/issues/all")
+				.then(res => res.json())
+				.then(issues => {
+					let { store } = this.state;
+					store.issues = issues;
 					this.setState({
 						store
 					});

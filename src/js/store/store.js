@@ -1,6 +1,7 @@
 const getState = ({ getStore, setStore }) => {
 	return {
 		store: {
+			issues: null,
 			authors: [],
 			tags: [],
 			lessons: [],
@@ -8,11 +9,9 @@ const getState = ({ getStore, setStore }) => {
 			markdown: {},
 			openSource: [
 				{
-					gitIssueUrl:
-						"https://github.com/breatheco-de/breathecode-cli",
+					gitIssueUrl: "https://github.com/breatheco-de/breathecode-cli",
 					cardClass: "card bg-light w-100 h-100 ",
-					icon:
-						"fas fa-terminal fa-7x d-flex justify-content-center pt-3 learningGreen",
+					icon: "fas fa-terminal fa-7x d-flex justify-content-center pt-3 learningGreen",
 					title: "BreatheCode CLI ",
 					description:
 						"Command Line interface to connect with lots of useful stuff like access to boilerplates, exercises, builders, etc",
@@ -34,8 +33,7 @@ const getState = ({ getStore, setStore }) => {
 				{
 					gitIssueUrl: "https://github.com/breatheco-de/c9-plugin",
 					cardClass: "card bg-light w-100 h-100",
-					icon:
-						"fas fa-cloud fa-7x d-flex justify-content-center pt-3 blueB",
+					icon: "fas fa-cloud fa-7x d-flex justify-content-center pt-3 blueB",
 					title: "C9 Plugin",
 					description:
 						"Cloud 9 is a great IDE for junior developers because it allows you to work with very few configurations on an isolated machine. We have created a plugin to enhance the Cloud 9 coding IDE as well as the integragtion with all the other BreatheCode projects.",
@@ -57,11 +55,9 @@ const getState = ({ getStore, setStore }) => {
 				{
 					gitIssueUrl: "https://github.com/breatheco-de/api",
 					cardClass: "card bg-light w-100 h-100",
-					icon:
-						"fas fa-user-graduate fa-7x d-flex justify-content-center pt-3 learningGreen",
+					icon: "fas fa-user-graduate fa-7x d-flex justify-content-center pt-3 learningGreen",
 					title: "Platform API",
-					description:
-						"The API for the LMS, it manages students, courses, etc.",
+					description: "The API for the LMS, it manages students, courses, etc.",
 					subtTitle: "Technologies",
 
 					technologies: [
@@ -98,8 +94,7 @@ const getState = ({ getStore, setStore }) => {
 				{
 					gitIssueUrl: "https://github.com/breatheco-de/assets",
 					cardClass: "card bg-light w-100 h-100 ",
-					icon:
-						"fas fa-file-alt fa-7x d-flex justify-content-center pt-3 blueB",
+					icon: "fas fa-file-alt fa-7x d-flex justify-content-center pt-3 blueB",
 					title: "Assets API",
 					description:
 						"Amazing resources for students (infographics, lessons, cheat-sheets, mock api's, etc).",
@@ -135,14 +130,11 @@ const getState = ({ getStore, setStore }) => {
 					]
 				},
 				{
-					gitIssueUrl:
-						"https://github.com/breatheco-de/react-session",
+					gitIssueUrl: "https://github.com/breatheco-de/react-session",
 					cardClass: "card bg-light w-100 h-100",
-					icon:
-						"fab fa-react fa-7x d-flex justify-content-center pt-3 learningGreen",
+					icon: "fab fa-react fa-7x d-flex justify-content-center pt-3 learningGreen",
 					title: "React Session",
-					description:
-						"Allows persistent sessions in react, compatible with react router.",
+					description: "Allows persistent sessions in react, compatible with react router.",
 					technologies: [
 						{
 							tech: "React.js",
@@ -151,11 +143,9 @@ const getState = ({ getStore, setStore }) => {
 					]
 				},
 				{
-					gitIssueUrl:
-						"https://github.com/breatheco-de/react-notifier",
+					gitIssueUrl: "https://github.com/breatheco-de/react-notifier",
 					cardClass: "card bg-light w-100 h-100",
-					icon:
-						"fab fa-react fa-7x d-flex justify-content-center pt-3 blueB",
+					icon: "fab fa-react fa-7x d-flex justify-content-center pt-3 blueB",
 					title: "React Notifier",
 					description: "Notification library for React Applications.",
 					subtTitle: "Technologies",
@@ -169,8 +159,7 @@ const getState = ({ getStore, setStore }) => {
 				{
 					gitIssueUrl: "https://github.com/breatheco-de/content",
 					cardClass: "card bg-light w-100 h-100",
-					icon:
-						"fas fa-sitemap fa-7x d-flex justify-content-center pt-3 learningGreen",
+					icon: "fas fa-sitemap fa-7x d-flex justify-content-center pt-3 learningGreen",
 					title: "CMS",
 					description:
 						"This is were most of the community content is being published: Lessons, Error Explanations and How to's.",
@@ -194,14 +183,11 @@ const getState = ({ getStore, setStore }) => {
 					]
 				},
 				{
-					gitIssueUrl:
-						"https://github.com/breatheco-de/desktop-client",
+					gitIssueUrl: "https://github.com/breatheco-de/desktop-client",
 					cardClass: "card bg-light w-100 h-100",
-					icon:
-						"fas fa-home fa-7x d-flex justify-content-center pt-3 blueB",
+					icon: "fas fa-home fa-7x d-flex justify-content-center pt-3 blueB",
 					title: "Student Web Client",
-					description:
-						"BreatheCode's main website for displaying the courses.",
+					description: "BreatheCode's main website for displaying the courses.",
 					technologies: [
 						{
 							tech: "React.js",
@@ -222,11 +208,9 @@ const getState = ({ getStore, setStore }) => {
 					]
 				},
 				{
-					gitIssueUrl:
-						"https://github.com/breatheco-de/teacher-client",
+					gitIssueUrl: "https://github.com/breatheco-de/teacher-client",
 					cardClass: "card bg-light w-100 h-100",
-					icon:
-						"fas fa-chalkboard-teacher fa-7x d-flex justify-content-center pt-3 blueM",
+					icon: "fas fa-chalkboard-teacher fa-7x d-flex justify-content-center pt-3 blueM",
 					title: "Teacher Web Client",
 					description:
 						"Teachers are able to manage the pace of their cohorts, review students deliverables, etc.",
@@ -252,8 +236,7 @@ const getState = ({ getStore, setStore }) => {
 				{
 					gitIssueUrl: "https://github.com/breatheco-de/admin-client",
 					cardClass: "card bg-light w-100 h-100",
-					icon:
-						"fas fa-users fa-7x d-flex justify-content-center pt-3 learningGreen2",
+					icon: "fas fa-users fa-7x d-flex justify-content-center pt-3 learningGreen2",
 					title: "Admin Web Client",
 					description: "Manage BreathCode students, teachers, etc.",
 					technologies: [
@@ -283,8 +266,7 @@ const getState = ({ getStore, setStore }) => {
 					let splitUrl = projectLink.split("/");
 					let companyName = splitUrl[3];
 					let projectName = splitUrl[4];
-					let finalUrl =
-						"https://github.com/" + companyName + "/" + projectName;
+					let finalUrl = "https://github.com/" + companyName + "/" + projectName;
 
 					return finalUrl;
 				}
@@ -293,12 +275,7 @@ const getState = ({ getStore, setStore }) => {
 					let splitUrl = urlIssue.split("/");
 					let companyName = splitUrl[3];
 					let projectName = splitUrl[4];
-					let finalUrl =
-						"https://api.github.com/repos/" +
-						companyName +
-						"/" +
-						projectName +
-						"/issues";
+					let finalUrl = "https://api.github.com/repos/" + companyName + "/" + projectName + "/issues";
 					return finalUrl;
 				}
 
@@ -306,12 +283,7 @@ const getState = ({ getStore, setStore }) => {
 					let splitUrl = readmeLink.split("/");
 					let companyName = splitUrl[3];
 					let projectName = splitUrl[4];
-					let finalUrl =
-						"https://github.com/" +
-						companyName +
-						"/" +
-						projectName +
-						"/blob/master/README.md";
+					let finalUrl = "https://github.com/" + companyName + "/" + projectName + "/blob/master/README.md";
 					return finalUrl;
 				}
 
@@ -319,18 +291,12 @@ const getState = ({ getStore, setStore }) => {
 					let splitUrl = issueLink.split("/");
 					let companyName = splitUrl[3];
 					let projectName = splitUrl[4];
-					let finalUrl =
-						"https://github.com/" +
-						companyName +
-						"/" +
-						projectName +
-						"/issues";
+					let finalUrl = "https://github.com/" + companyName + "/" + projectName + "/issues";
 					return finalUrl;
 				}
 			},
 			lessonUrl: slug => {
-				let fullLink =
-					"https://docs.content.breatheco.de/lesson/" + slug;
+				let fullLink = "https://docs.content.breatheco.de/lesson/" + slug;
 				return fullLink;
 			},
 			filterTags: array => {
@@ -349,6 +315,13 @@ const getState = ({ getStore, setStore }) => {
 					item.technologies.forEach(technologie => {
 						technologies.push(technologie.tech);
 					});
+				});
+				return technologies;
+			},
+			filterTechnologies: object => {
+				let technologies = [];
+				object.technologies.forEach(t => {
+					technologies.push(t.tech);
 				});
 				return technologies;
 			}

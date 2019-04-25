@@ -4,11 +4,11 @@ import PropTypes from "prop-types";
 export class Button extends React.Component {
 	render() {
 		return (
-			<button type="button" className={this.props.classNameButton}>
+			<a rel="noopener" className={this.props.classNameButton} href={this.props.href}>
 				{this.props.buttonText}
 				<br />
 				<small>{this.props.smallText}</small>
-			</button>
+			</a>
 		);
 	}
 }
@@ -16,5 +16,6 @@ export class Button extends React.Component {
 Button.propTypes = {
 	classNameButton: PropTypes.string,
 	buttonText: PropTypes.string,
-	smallText: PropTypes.string
+	smallText: PropTypes.string,
+	href: PropTypes.string
 };

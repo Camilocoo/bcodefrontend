@@ -25,17 +25,9 @@ export class Layout extends React.Component {
 						<Switch>
 							<Route exact path="/" component={Home} />
 							<Route exact path="/lessons" component={Lessons} />
-							<Route
-								exact
-								path="/opensource"
-								component={OpenSource}
-							/>
+							<Route exact path="/opensource" component={OpenSource} />
 							<Route exact path="/aboutus" component={AboutUs} />
-							<Route
-								exact
-								path="/contributing"
-								component={Contributing}
-							/>
+							<Route exact path="/contributing" component={Contributing} />
 							<Route path="/demo" component={Demo} />
 							<Route path="/single/:theid" component={Single} />
 							<Route render={() => <h1>Not found!</h1>} />

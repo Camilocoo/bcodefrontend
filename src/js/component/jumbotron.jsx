@@ -7,40 +7,26 @@ export class Jumbotron extends React.Component {
 	render() {
 		return (
 			<div className={this.props.jumbotronClass}>
-				<h1 className={this.props.jumbotronTitleClass}>
-					{this.props.jumbotronTitle}
-				</h1>
+				<h1 className={this.props.jumbotronTitleClass}>{this.props.jumbotronTitle}</h1>
 				<div className={this.props.jumboRowClass}>
 					<div className={this.props.firstColumnClass}>
-						<p className={this.props.pClassFirstCol}>
-							{this.props.pHeaderFirstCol}
-						</p>
-						<p className={this.props.pTexClassColOne}>
-							{this.props.pTextFirstCol}
-						</p>
+						<p className={this.props.pClassFirstCol}>{this.props.pHeaderFirstCol}</p>
+						<p className={this.props.pTexClassColOne}>{this.props.pTextFirstCol}</p>
 						<p className={this.props.firstColumnLinkClass}>
 							<Link to="/aboutus">
-								<a className={this.props.linkClassColOne}>
-									{this.props.firstLinkColOneText}
-								</a>
+								<a className={this.props.linkClassColOne}>{this.props.firstLinkColOneText}</a>
 							</Link>
 						</p>
 						<hr className={this.props.hrLineClass} />
 						<p className={this.props.firstColumnLinkClass}>
 							<Link to="/opensource">
-								<a className={this.props.linkClassColOne}>
-									{" "}
-									{this.props.secondLinkColOneText}
-								</a>
+								<a className={this.props.linkClassColOne}> {this.props.secondLinkColOneText}</a>
 							</Link>
 						</p>
 						<hr className={this.props.hrLineClass} />
 						<p className={this.props.firstColumnLinkClass}>
 							<Link to="/contributing">
-								<a className={this.props.linkClassColOne}>
-									{" "}
-									{this.props.thirdLinkColOneText}
-								</a>
+								<a className={this.props.linkClassColOne}> {this.props.thirdLinkColOneText}</a>
 							</Link>
 						</p>
 						<p className={this.props.smallDescriptionFirstColClass}>
@@ -49,9 +35,7 @@ export class Jumbotron extends React.Component {
 						<div className={this.props.buttonAlignCenterClass}>
 							<Link to="/contributing">
 								<Button
-									classNameButton={
-										this.props.buttonColOneClass
-									}
+									classNameButton={this.props.buttonColOneClass}
 									buttonText={this.props.buttonColOneText}
 								/>
 							</Link>
@@ -59,19 +43,12 @@ export class Jumbotron extends React.Component {
 					</div>
 					<div className={this.props.secondColumnClass}>
 						<div className="d-none d-md-block">
-							<img
-								className={this.props.imgClass}
-								src={this.props.imgSrc}
-							/>
+							<img className={this.props.imgClass} src={this.props.imgSrc} />
 						</div>
 					</div>
 					<div className={this.props.thirdColumnClass}>
-						<p className={this.props.pClassSecondCol}>
-							{this.props.pHeaderSecondCol}
-						</p>
-						<p className={this.props.pTextClassColTwo}>
-							{this.props.pTextSecondCol}
-						</p>
+						<p className={this.props.pClassSecondCol}>{this.props.pHeaderSecondCol}</p>
+						<p className={this.props.pTextClassColTwo}>{this.props.pTextSecondCol}</p>
 						<p className={this.props.linksClassSecondCol}>
 							<Link to="/lessons">
 								<a> {this.props.firstLinkColTwoText}</a>
@@ -83,17 +60,10 @@ export class Jumbotron extends React.Component {
 						</p>
 						<hr className={this.props.hrLineClass} />
 						<p className={this.props.linksClassSecondCol}>
-							<a href={this.props.secondColThirdLinkHref}>
-								{this.props.thirdLinkColTwoText}
-							</a>
+							<a href={this.props.secondColThirdLinkHref}>{this.props.thirdLinkColTwoText}</a>
 						</p>
-						<p
-							className={
-								this.props.smallDescriptionSecondColClass
-							}>
-							<small>
-								{this.props.smallDescriptionsecondTextCol}
-							</small>
+						<p className={this.props.smallDescriptionSecondColClass}>
+							<small>{this.props.smallDescriptionsecondTextCol}</small>
 						</p>
 						<div className={this.props.buttonAlignCenterClassTwo}>
 							<Button

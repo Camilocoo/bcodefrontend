@@ -69,3 +69,8 @@ a{
      background-color: white;
         z-index: 20;
 }
+
+
+.gradientFooter{
+  background-image: linear-gradient(#FFFFFF,#E9ECEF);
+}
